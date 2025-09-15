@@ -1,68 +1,69 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Social Icons (nav & footer) ---
-  const socialLinks = [
-    { id: "insta-btn", url: "https://www.instagram.com/pranavipaudel/" },
-    { id: "insta-btn-footer", url: "https://www.instagram.com/pranavipaudel/" },
-    { id: "linkedin-btn", url: "https://www.linkedin.com/in/pranavi-paudel/" },
-    { id: "linkedin-btn-footer", url: "https://www.linkedin.com/in/pranavi-paudel/" },
-    { id: "email-btn", url: "mailto:pp892@msstate.edu" },
-    { id: "email-btn-footer", url: "mailto:pp892@msstate.edu" }
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranavi Paudel - Home</title>
+    <link rel="shortcut icon" href="fab.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/3977f7c6e0.js" crossorigin="anonymous" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
+</head>
 
-  socialLinks.forEach(link => {
-    const el = document.getElementById(link.id);
-    if (el) {
-      el.addEventListener("click", () => {
-        window.open(link.url, "_blank");
-      });
-    }
-  });
+<body>
+<div id="landing-bg">
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="home">
+            <a href="index.html"><i class="fa-solid fa-house"></i></a>
+        </div>
+        <div class="rest">
+            <a href="index.html">Home</a>
+            <a href="Pranavi.html">Profile</a>
+            <!-- Social links -->
+            <a href="https://www.instagram.com/pranavipaudel/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pranavi-paudel/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:yourname@email.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </nav>
 
-  // --- Skill progress bar animation on scroll ---
-  const skillsSection = document.querySelector('.skills-grid');
+    <!-- Hero / Introduction -->
+    <section class="main">
+        <h2 class="section-title">Welcome!</h2>
+        <div class="bio-wrapper">
+            <p>Hello, I'm <strong>Pranavi Paudel</strong>, a Biomedical Engineering senior at Mississippi State University with a 4.0 GPA. I am passionate about Human-Machine Interaction, medical devices, robotics, and cutting-edge biomedical research. I am seeking internship and co-op opportunities for fall and summer to apply my skills in CAD, electronics, programming, additive manufacturing, and wet lab techniques.</p>
+        </div>
+    </section>
 
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= window.innerHeight && rect.bottom >= 0;
-  }
-
-  function animateSkillsOnScroll() {
-    if (skillsSection && isInViewport(skillsSection)) {
-      skillsSection.querySelectorAll('li').forEach(item => {
-        if (!item.classList.contains('active')) {
-          item.classList.add('active');
-        }
-      });
-      window.removeEventListener('scroll', animateSkillsOnScroll);
-    }
-  }
-
-  window.addEventListener('scroll', animateSkillsOnScroll);
-  window.addEventListener('load', animateSkillsOnScroll);
-
-  // --- Vanta.js initialization (TRUNK effect) ---
-  VANTA.TRUNK({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0xb31d4b,
-    spacing: 10.00,
-    chaos: 10.00
-  });
-
-  // --- Hide nav link for current page ---
-  const currentPage = window.location.pathname.split("/").pop(); // e.g., 'index.html' or 'Pranavi.html'
-  const homeLink = document.querySelector('.nav a[href="index.html"]');
-  const profileLink = document.querySelector('.nav a[href="profile.html"], .nav a[href="Pranavi.html"]');
-
-  if (currentPage === "index.html" && homeLink) {
-    homeLink.style.display = "none";
-  } else if ((currentPage === "profile.html" || currentPage === "Pranavi.html") && profileLink) {
-    profileLink.style.display = "none";
-  }
-});
+    <!-- Footer -->
+    <footer class="foo">
+        <div class="side1">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Pranavi.html">Profile</a></li>
+            </ul>
+        </div>
+        <div class="side2">
+            <a href="https://www.instagram.com/pranavipaudel/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pranavi-paudel/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:yourname@email.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <div class="side0">
+            &copy; 2025 Pranavi Paudel. All Rights Reserved.
+        </div>
+    </footer>
+</div>
+</body>
+</html>

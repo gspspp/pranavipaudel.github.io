@@ -473,3 +473,6 @@ h2.section-title {
   margin-left: auto;
   margin-right: auto;
 }
+.no-underline {
+  color: #c41549; /* optional: set a custom color */
+}

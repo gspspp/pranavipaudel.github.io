@@ -1,61 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Instagram icon click - nav and footer
-  const instaBtn = document.getElementById("insta-btn");
-  if (instaBtn) {
-    instaBtn.addEventListener("click", () => {
-      window.open("https://www.instagram.com/yourusername/", "_blank");
-    });
-  }
-  const instaBtnFooter = document.getElementById("insta-btn-footer");
-  if (instaBtnFooter) {
-    instaBtnFooter.addEventListener("click", () => {
-      window.open("https://www.instagram.com/yourusername/", "_blank");
-    });
-  }
+  // --- Social Icons (nav & footer) ---
+  const socialLinks = [
+    { id: "insta-btn", url: "https://www.instagram.com/pranavipaudel/" },
+    { id: "insta-btn-footer", url: "https://www.instagram.com/pranavipaudel/" },
+    { id: "linkedin-btn", url: "https://www.linkedin.com/in/pranavi-paudel/" },
+    { id: "linkedin-btn-footer", url: "https://www.linkedin.com/in/pranavi-paudel/" },
+    { id: "email-btn", url: "mailto:pp892@msstate.edu" },
+    { id: "email-btn-footer", url: "mailto:pp892@msstate.edu" }
+  ];
 
-  // LinkedIn icon click - nav and footer
-  const linkedinBtn = document.getElementById("linkedin-btn");
-  if (linkedinBtn) {
-    linkedinBtn.addEventListener("click", () => {
-      window.open("https://www.linkedin.com/in/spandan-niroula/", "_blank");
-    });
-  }
-  const linkedinBtnFooter = document.getElementById("linkedin-btn-footer");
-  if (linkedinBtnFooter) {
-    linkedinBtnFooter.addEventListener("click", () => {
-      window.open("https://www.linkedin.com/in/spandan-niroula/", "_blank");
-    });
-  }
+  socialLinks.forEach(link => {
+    const el = document.getElementById(link.id);
+    if (el) {
+      el.addEventListener("click", () => {
+        window.open(link.url, "_blank");
+      });
+    }
+  });
 
-  // Email icon click - nav and footer
-  const emailBtn = document.getElementById("email-btn");
-  if (emailBtn) {
-    emailBtn.addEventListener("click", () => {
-      window.open("mailto:sn940@msstate.edu");
-    });
-  }
-  const emailBtnFooter = document.getElementById("email-btn-footer");
-  if (emailBtnFooter) {
-    emailBtnFooter.addEventListener("click", () => {
-      window.open("mailto:sn940@msstate.edu");
-    });
-  }
-
-  // Skill progress bar animation on scroll
+  // --- Skill progress bar animation on scroll ---
   const skillsSection = document.querySelector('.skills-grid');
 
   function isInViewport(el) {
     const rect = el.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom >= 0
-    );
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
   }
 
   function animateSkillsOnScroll() {
-    if (isInViewport(skillsSection)) {
-      const skillItems = skillsSection.querySelectorAll('li');
-      skillItems.forEach((item) => {
+    if (skillsSection && isInViewport(skillsSection)) {
+      skillsSection.querySelectorAll('li').forEach(item => {
         if (!item.classList.contains('active')) {
           item.classList.add('active');
         }
@@ -67,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', animateSkillsOnScroll);
   window.addEventListener('load', animateSkillsOnScroll);
 
-  // Vanta.js initialization (TRUNK effect)
+  // --- Vanta.js initialization (TRUNK effect) ---
   VANTA.TRUNK({
     el: "#vanta-bg",
     mouseControls: true,
@@ -81,4 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
     spacing: 10.00,
     chaos: 10.00
   });
+
+  // --- Hide nav link for current page ---
+  const currentPage = window.location.pathname.split("/").pop(); // e.g., 'index.html' or 'Pranavi.html'
+  const homeLink = document.querySelector('.nav a[href="index.html"]');
+  const profileLink = document.querySelector('.nav a[href="profile.html"], .nav a[href="Pranavi.html"]');
+
+  if (currentPage === "index.html" && homeLink) {
+    homeLink.style.display = "none";
+  } else if ((currentPage === "profile.html" || currentPage === "Pranavi.html") && profileLink) {
+    profileLink.style.display = "none";
+  }
 });

@@ -41,19 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('load', animateSkillsOnScroll);
 
   // --- Vanta.js initialization (TRUNK effect) ---
-  VANTA.TRUNK({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0xb31d4b,
-    spacing: 10.00,
-    chaos: 10.00
-  });
+  VANTA.DOTS({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xa94061,
+  color2: 0xab3d78,
+  backgroundColor: 0x191621,
+  size: 4.80,
+  spacing: 48.00,
+  showLines: false
+})
 
   // --- Hide nav link for current page ---
   const currentPage = window.location.pathname.split("/").pop(); // e.g., 'index.html' or 'Pranavi.html'

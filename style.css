@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity:0.6;
+  opacity:0.8;
 }
 .education-wrapper,
 .skills-wrapper,
@@ -70,7 +70,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   margin-top: 12px;
-  opacity:0.6;
+  opacity:0.8;
 }
 
 /* Experience item */
@@ -475,4 +475,5 @@ h2.section-title {
 }
 .no-underline {
   color: #c41549; /* optional: set a custom color */
+
 }

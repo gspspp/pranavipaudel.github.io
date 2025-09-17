@@ -124,7 +124,7 @@ article.experience-item ul li {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity:0.6;
+  opacity:0.8;
 }
 
 /* Project item */
@@ -477,3 +477,4 @@ h2.section-title {
   color: #c41549; /* optional: set a custom color */
 
 }
+
